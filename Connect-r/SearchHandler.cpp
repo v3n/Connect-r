@@ -27,27 +27,30 @@ move_t findNextMove(Game * g) {
     
     std::vector<move_t> moves = g->getOrderedMoves();
     
-    for(__block std::vector<move_t>::iterator i = moves.begin(); i != moves.end(); ++i) {
+    for(std::vector<move_t>::iterator i = moves.begin(); i != moves.end(); ++i) {
         if(g->move(*i)) {
             currentGame = new Game((const Game)*g);
             g->unmove();
             
-//            dispatch_group_async(group, queue, ^{
-//                std::cout << *i <<std::endl;
+            dispatch_group_async(group, queue, ^{
                 scores.score[*i] = negaMax(currentGame, HORIZON, -H_MAX, H_MAX);
-//            });
+            });
         }
         currentGame = nullptr;
     }
     
-//    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+    
+    //FIXME: terminating early corrupts the data. need to determine why this is.
 //      dispatch_group_wait(group, dispatch_time(DISPATCH_TIME_NOW, 2LL * NSEC_PER_SEC));
+    
     
     move_t v = 0;
     for(int i = 0; i < WIDTH; i++) {
         if(scores.score[i] >= scores.score[v])
             v = i;
     }
+    dispatch_release(group);
     
     return v;
 }
@@ -74,8 +77,7 @@ int negaMax(Game * g, int depth, int alpha, int beta) {
         if(best > alpha)
             alpha = best;
         if(best >= beta)
-            break;
-//            break; //ab cutoff
+            break; //ab cutoff
     }
     return best;
 }
