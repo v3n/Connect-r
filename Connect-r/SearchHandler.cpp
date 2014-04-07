@@ -44,7 +44,7 @@ move_t findNextMove(Game * g) {
     //FIXME: terminating early corrupts the data. need to determine why this is.
 //      dispatch_group_wait(group, dispatch_time(DISPATCH_TIME_NOW, 2LL * NSEC_PER_SEC));
     
-    
+    //TODO: Randomly select best move (if there are ties) instead of picking the last one we look at.
     move_t v = 0;
     for(int i = 0; i < WIDTH; i++) {
         if(scores.score[i] >= scores.score[v])
