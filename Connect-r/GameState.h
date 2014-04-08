@@ -16,6 +16,7 @@
 #include <bitset>
 #include <array>
 #include <vector>
+#include <random>
 #include <iostream>
 
 
@@ -43,6 +44,15 @@ typedef std::bitset<BOARDSIZEP1> bitboard;
 class Game {
     std::array<bitboard *, 2> boards;
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+#ifdef BSD
+#define GET_RANDOM_BOOL (arc4random() % 2)
+#else
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> r(0,1);
+#define GET_RANDOM_BOOL (r(gen))
+#endif
     
     //I chose negaMax because the implementation for a zero-sum
     //game is simpler than minimax. This is implemented as a C-style function
@@ -284,11 +294,11 @@ public:
         
         //FIXME: terminating early corrupts the data. need to determine why this is.
         //      dispatch_group_wait(group, dispatch_time(DISPATCH_TIME_NOW, 2LL * NSEC_PER_SEC));
-        
-        //TODO: Randomly select best move (if there are ties) instead of picking the last one we look at.
         move_t v = 0;
         for(int i = 0; i < WIDTH; i++) {
-            if(scores.score[i] >= scores.score[v])
+            if(scores.score[i] > scores.score[v])
+                v = i;
+            else if(scores.score[i] == scores.score[v] && (GET_RANDOM_BOOL == 1))
                 v = i;
         }
         dispatch_release(group);
