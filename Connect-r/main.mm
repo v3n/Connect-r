@@ -18,19 +18,7 @@ using namespace std;
 
 int main(int argc, const char * argv[])
 {
-
-    @autoreleasepool {
-        
-        // insert code here...
-        NSLog(@"Hello, World!");
-        
-        
-    }
-    
     Game *g = new Game();
-    
-    //I move first:
-//    g->move(4);
     
     for ( int i = 0; ; i++ ) {
         cout << "GameState:" << endl;
@@ -44,7 +32,7 @@ int main(int argc, const char * argv[])
 //        if(g->checkForWin())
 //            cout << "GAME WON!" << endl;
         
-        move_t move = findNextMove(g);
+        move_t move = g->findNextMove();
         cout << "Best Move: " << move << endl;
         g->move(move);
         
