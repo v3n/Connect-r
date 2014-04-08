@@ -9,13 +9,15 @@
 #ifndef __Connect_r__GameState__
 #define __Connect_r__GameState__
 
-#include <iostream>
+#include "config.h"
+
+#include <dispatch/dispatch.h>
+
 #include <bitset>
 #include <array>
 #include <vector>
-#include "config.h"
-#include <dispatch/dispatch.h>
-#include <queue>
+#include <iostream>
+
 
 //Why are is this a C++ class instead of C or or an Objective-C class?
 //The overhead of Objective-C classes & types made it unattractive. (smart

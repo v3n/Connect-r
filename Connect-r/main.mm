@@ -6,13 +6,14 @@
 //  Copyright (c) 2014 Jonathan Howard. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#include "GameState.h"
-#include <iostream>
-#include <dispatch/queue.h>
-#include <queue>
-#include "SearchHandler.h"
 
+#include "config.h"
+#include "GameState.h"
+
+#include <dispatch/queue.h>
+
+#include <iostream>
+#import <Foundation/Foundation.h>
 
 using namespace std;
 
