@@ -13,7 +13,7 @@
 #include <bitset>
 #include <array>
 #include <vector>
-#include "HeuristicScores.h"
+#include "config.h"
 #include <dispatch/dispatch.h>
 #include <queue>
 
@@ -33,19 +33,7 @@
 //Due to a troubling memory bug with Boost on OS X, we're using
 //std::bitset instead of boost::dynamic_bitset. This requires the
 //use of preprocessor defines for fixed size bitsets.
-#define WIDTH 7
-#define HEIGHT 6
-#define C_R 4
 
-#define HEIGHTP1 (HEIGHT + 1)
-#define HEIGHTP2 (HEIGHT + 2)
-
-#define BOARDSIZE (WIDTH*HEIGHT)
-#define BOARDSIZEP1 (WIDTH*HEIGHTP1)
-
-#define EMPTY_SPACE '-'
-#define RED_SPACE 'O'
-#define BLACK_SPACE 'X'
 
 typedef int move_t;
 typedef std::bitset<BOARDSIZEP1> bitboard;

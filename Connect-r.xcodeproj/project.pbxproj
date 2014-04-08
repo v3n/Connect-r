@@ -32,7 +32,7 @@
 		ABA03B1A18E34A950091F882 /* Connect-r-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Connect-r-Prefix.pch"; sourceTree = "<group>"; };
 		ABA03B1B18E34A950091F882 /* Connect_r.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Connect_r.1; sourceTree = "<group>"; };
 		ABA6725918E5D91E001660CF /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
-		ABCE22CF18E92EEE003D555F /* HeuristicScores.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeuristicScores.h; sourceTree = "<group>"; };
+		ABCE22CF18E92EEE003D555F /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		ABCE22D718E965B6003D555F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ABCE22D918E965BF003D555F /* libSystem.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSystem.dylib; path = usr/lib/libSystem.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -83,7 +83,7 @@
 				ABA6725918E5D91E001660CF /* GameState.h */,
 				ABA03B1B18E34A950091F882 /* Connect_r.1 */,
 				ABA03B1918E34A950091F882 /* Supporting Files */,
-				ABCE22CF18E92EEE003D555F /* HeuristicScores.h */,
+				ABCE22CF18E92EEE003D555F /* config.h */,
 			);
 			path = "Connect-r";
 			sourceTree = "<group>";
